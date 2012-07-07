@@ -1,15 +1,17 @@
 Cmall::Application.routes.draw do
-
-  resources :messages
-
-  resources :brands
-
+     resources :products
+     resources :brands
+     resources :categories
+     resources :messages
+		 
+		 resources :xiangmuzhaoshangs
+		 resources :zhaopins
+		 resources :qiugous
+		 resources :huiyihuizhans
+		 
   get "images/upload"
   get "images/image_list"
-  resources :categories
-
-  resources :products
-
+  
   get "hello/index"
 
   # The priority is based upon order of creation:
@@ -52,6 +54,13 @@ Cmall::Application.routes.draw do
   #     end
   #   end
 
+   namespace :admin do
+     resources :products
+     resources :brands
+     resources :categories
+     resources :messages
+   end
+  
   # Sample resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController

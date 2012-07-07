@@ -1,0 +1,2 @@
+module ZhaopinHelper
+end

@@ -1,3 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>360器材在线</title>
+    <%= javascript_include_tag "jquery",'jquery.KinSlideshow-1.2.1.min','common' %>
+    <%= stylesheet_link_tag "common", 'index' %>
+  </head>
+
+  <body>
+
+    <div class="top">
+      <ul class="w">
+        <li class="fav"><a href="#">收藏器材在线</a></li>
+        <li class="welcome">欢迎来到器材在线</li>
+        <li class="login">
+          <form name="form" id="loginform" action="" method="post"><label for="username">用户名:</label><input type="text" name="username" id="username" class="int"/><label for="password">密码:</label><input type="text" name="password" id="password"  class="int"/><input type="submit" class="sub" value="登陆" /><input type="button" value="注册" class="reg" /><a href="#" class="ca6 ml10 mr10">忘记密码？</a></form>
+        </li>
+        <li class="quick">
+          <a href="#">我的订单</a> |
+          <a href="#">我的器材在线</a> |
+          <a href="#">联系客服</a> |
+          <a href="#">帮助中心</a>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="Menu w c">
+      <li class="logo">
+        <a href="#" title="360器材在线"><img src="/assets/Logo.jpg" width="210" title="360器材在线" /></a>
+      </li>
+      <li class="menu">
+        <ul class="menuul">
+          <li class="index"><a href="/">首页</a></li>
+          <li class="nav">
+            <a href="zx_index.html">品牌直销</a>
+            <a href="tuan/html/arclist.html" target="_blank">团购</a>
+            <a href="#">项目招商</a>
+            <a href="#">会议会展</a>
+            <a href="#">最新求购</a>
+            <a href="#">企业招聘</a>
+            <a href="#">分部分类</a>
+            <a href="#" class="bgn">生物论坛</a>
+          </li>
+        </ul>
+      </li>
+    </div>
+
+    <div class="tool w">
+
+      <ul class="search">
+        <form name="form" id="form" method="post" action="">
+          <input type="text" name="keyword" id="keyword" onFocus="if (value =='名称、型号、品牌'){value =''}" onBlur="if (value ==''){value='名称、型号、品牌'}" value="名称、型号、品牌" class="searchinput" /><input type="submit" value="" class="searchsubmit" />
+        </form>
+      </ul>
+
+      <ul class="hotword">
+			热门关键字：<a href="#">尼康显微镜SMZ1500</a>
+      </ul>
+
+      <ul class="buycar">
+        <li class="carnum"><a href="#">购物车 <font class="num">0</font> 件</a>
+          <div class="carlist">您的购物车中暂无商品，赶快选择心爱的商品吧！</div>
+        </li>
+
+        <li class="jies"><a href="#"></a></li>
+      </ul>
+
+      <ul class="bqr"></ul>
+    </div>
+
+
     <div class="w">
 
       <div class="left">
@@ -5,18 +78,63 @@
           <div class="allclass">
             <img src="/assets/spfl.jpg" style="margin-left:5px;"/>
             <div class="classtop"></div>
-            <% Category.all(:conditions=>["category_id =0"]).each do |cat|%>
-            <ul>
-							<a href="<%= category_url(cat)%>" class="class"><%= cat.name%></a>
-              <div class="boxshow">
-								<% cat.child_categories.each do |cat_item|%>
-                <a href="<%= category_url(cat)%>"><%= cat.name%></a> |
-									
-                <% end%>
-							</div>
+            <ul><a href="#" class="class">实验常用设备</a>
+              <div class="boxshow">{pc:get sql="SELECT * FROM `chenzhi_category` WHERE `parentid`=19 ORDER BY catid DESC" num="20"}
+							{loop $data $key $val}
+                <a href="{$val[url]}">·{$val['catname']}</a> | {/loop}
+							{/pc}</div>
             </ul>
-            <% end%>
-      
+            <ul><a href="#" class="class">生命科学仪器</a>
+              <div class="boxshow">{pc:get sql="SELECT * FROM `chenzhi_category` WHERE `parentid`=20 ORDER BY catid DESC" num="20"}
+							{loop $data $key $val}
+                <a href="{$val[url]}">·{$val['catname']}</a> | {/loop}
+							{/pc}</div>
+            </ul>
+            <ul><a href="#" class="class">农林环境食品</a>
+              <div class="boxshow">{pc:get sql="SELECT * FROM `chenzhi_category` WHERE `parentid`=21 ORDER BY catid DESC" num="20"}
+							{loop $data $key $val}
+                <a href="{$val[url]}">·{$val['catname']}</a> | {/loop}
+							{/pc}</div>
+            </ul>
+            <ul><a href="#" class="class">水质电化学仪</a>
+              <div class="boxshow">{pc:get sql="SELECT * FROM `chenzhi_category` WHERE `parentid`=22 ORDER BY catid DESC" num="20"}
+							{loop $data $key $val}
+                <a href="{$val[url]}">·{$val['catname']}</a> | {/loop}
+							{/pc}</div>
+            </ul>
+            <ul><a href="#" class="class">物性测量仪器</a>
+              <div class="boxshow">{pc:get sql="SELECT * FROM `chenzhi_category` WHERE `parentid`=23 ORDER BY catid DESC" num="20"}
+							{loop $data $key $val}
+                <a href="{$val[url]}">·{$val['catname']}</a> | {/loop}
+							{/pc}</div>
+            </ul>
+            <ul><a href="#" class="class">试剂</a>
+              <div class="boxshow">{pc:get sql="SELECT * FROM `chenzhi_category` WHERE `parentid`=9 ORDER BY catid DESC" num="20"}
+							{loop $data $key $val}
+                <a href="{$val[url]}">·{$val['catname']}</a> | {/loop}
+							{/pc}</div>
+            </ul>
+            <ul><a href="#" class="class">抗体</a>
+              <div class="boxshow">{pc:get sql="SELECT * FROM `chenzhi_category` WHERE `parentid`=10 ORDER BY catid DESC" num="20"}
+							{loop $data $key $val}
+                <a href="{$val[url]}">·{$val['catname']}</a> | {/loop}
+							{/pc}</div>
+            </ul>
+            <ul><a href="#" class="class">耗材</a>
+              <div class="boxshow">{pc:get sql="SELECT * FROM `chenzhi_category` WHERE `parentid`=8 ORDER BY catid DESC" num="20"}
+							{loop $data $key $val}
+                <a href="{$val[url]}">·{$val['catname']}</a> | {/loop}
+							{/pc}</div>
+            </ul>
+            <ul><a href="#" class="class">技术服务</a>
+              <div class="boxshow">{pc:get sql="SELECT * FROM `chenzhi_category` WHERE `parentid`=11 ORDER BY catid DESC" num="20"}
+							{loop $data $key $val}
+                <a href="{$val[url]}">·{$val['catname']}</a> | {/loop}
+							{/pc}</div>
+            </ul>
+            <ul><a href="#" class="red">全部商品分类>></a>
+
+            </ul>
             <div class="classbottom"></div>
             <div style="clear:inherit"></div>
           </div>
@@ -82,7 +200,7 @@
     </div>
 
     <div class="c"></div>
-        <div class="long"><div class="w">促销专区</div></div>
+    <div class="long"><div class="w">促销专区</div></div>
     <div class="w">
       <div class="left">
         <div class="sad"><img src="/assets/sad1.jpg" width="211px;"/></div>
@@ -463,3 +581,5 @@
 
       $().ready(function(){$(".allclass ul").hover(function(){$(this).find(".boxshow").show();},function(){$(this).find(".boxshow").hide();});});
     </script>
+  </body>
+</html>

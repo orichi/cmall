@@ -1,0 +1,51 @@
+<%= form_for([:admin,  @product],:html=>{:multipart=>true}) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+
+<div class="field">
+      <%= f.label :brand %><br />
+    <%= f.select :brand_id, Brand.all.map{|x| [x.name, x.id]} %>
+</div>
+<div class="field">
+      <%= f.label :category_id %><br />
+    <%= f.select :category_id, grouped_options_for_select(get_category_select) %>
+</div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :min_price %><br />
+    <%= f.text_field :min_price %>
+  </div>
+  <div class="field">
+    <%= f.label :max_price %><br />
+    <%= f.text_field :max_price %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_content%><br />
+    <%= f.kindeditor :product_content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module HuiyihuizhanHelper
+end

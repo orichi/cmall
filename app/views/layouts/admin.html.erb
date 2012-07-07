@@ -36,10 +36,10 @@
           <li class="nav">
             <a href="<%= brands_url%>">品牌直销</a>
             <a href="tuan/html/arclist.html" target="_blank">团购</a>
-            <a href="<%= xiangmuzhaoshangs_url%>">项目招商</a>
-            <a href="<%= huiyihuizhans_url %>">会议会展</a>
-            <a href="<%= qiugous_url %>">最新求购</a>
-            <a href="<%= zhaopins_url %>">企业招聘</a>
+            <a href="<%= messages_url(:cat=>"xiangmuzhaoshang")%>">项目招商</a>
+            <a href="<%= messages_url(:cat=>"huiyihuizhan")%>">会议会展</a>
+            <a href="<%= messages_url(:cat=>"qiugou")%>">最新求购</a>
+            <a href="<%= messages_url(:cat=>"qiyezhaopin")%>">企业招聘</a>
             <a href="#">分部分类</a>
             <a href="#" class="bgn">生物论坛</a>
           </li>
@@ -72,6 +72,8 @@
 
 		<%= yield %>
 
-
+<style type='text/css'>
+ input,textarea{border:1px solid #000;}
+</style>
   </body>
 </html>

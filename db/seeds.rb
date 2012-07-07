@@ -35,3 +35,8 @@ Category.create({:name=>"耗材-1",:category_id=>category8.id})
 Category.create({:name=>"耗材-2",:category_id=>category8.id})
 Category.create({:name=>"技术服务-1",:category_id=>category9.id})
 Category.create({:name=>"技术服务-2",:category_id=>category9.id})
+Brand.delete_all
+Brand.create({:name=>'品牌1', :content=>'content'})
+Brand.create({:name=>'品牌2', :content=>'content'})
+Brand.create({:name=>'品牌3', :content=>'content'})
+Brand.create({:name=>'品牌4', :content=>'content'})
